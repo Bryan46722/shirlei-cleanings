@@ -1,0 +1,2166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shirlei Cleanings | Florida's #1 Premium Cleaning Service</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0066FF;
+            --secondary: #00D4FF;
+            --accent: #FFD700;
+            --dark: #0A0E27;
+            --darker: #050817;
+            --white: #FFFFFF;
+            --light-gray: #F8FAFC;
+            --medium-gray: #64748B;
+            --text-primary: #1E293B;
+            --text-secondary: #475569;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            
+            --gradient-primary: linear-gradient(135deg, #0066FF 0%, #00D4FF 100%);
+            --gradient-gold: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            --gradient-dark: linear-gradient(135deg, #0A0E27 0%, #050817 100%);
+            --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --shadow-glow: 0 0 30px rgba(0, 102, 255, 0.3);
+            
+            --border-radius: 16px;
+            --border-radius-lg: 24px;
+            --border-radius-xl: 32px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--light-gray);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-primary);
+            border-radius: 4px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar.scrolled {
+            padding: 12px 0;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+            border: 2px solid transparent;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: var(--gradient-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            z-index: 1;
+        }
+
+        .hero-bg-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .shape-3 {
+            width: 150px;
+            height: 150px;
+            bottom: 20%;
+            left: 60%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-30px) rotate(180deg);
+            }
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--white);
+            z-index: 3;
+            max-width: 1000px;
+            padding: 0 40px;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gradient-glass);
+            backdrop-filter: blur(20px);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero-badge::before {
+            content: '⭐';
+            font-size: 1.1rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.5);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .hero .highlight {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 50px;
+            opacity: 0.9;
+            font-weight: 400;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+
+        .btn-hero-primary {
+            background: var(--gradient-gold);
+            color: var(--dark);
+            padding: 22px 45px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-xl);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-hero-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .btn-hero-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-hero-secondary {
+            background: var(--gradient-glass);
+            backdrop-filter: blur(20px);
+            color: var(--white);
+            padding: 22px 45px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-hero-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .btn-hero-secondary:hover {
+            background: var(--white);
+            color: var(--primary);
+            transform: translateY(-5px);
+            border-color: var(--white);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            opacity: 0.8;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 140px 0;
+            background: var(--light-gray);
+            position: relative;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(180deg, rgba(10, 14, 39, 0.05), transparent);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 100px;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .section-badge::before {
+            content: '✨';
+            font-size: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 25px;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .service-card:hover {
+            transform: translateY(-20px);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .service-image {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .service-card:hover .service-image::before {
+            opacity: 0.8;
+        }
+
+        .service-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0, 102, 255, 0.9), rgba(0, 212, 255, 0.8));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover .service-overlay {
+            opacity: 1;
+        }
+
+        .service-overlay-content {
+            text-align: center;
+            color: var(--white);
+        }
+
+        .service-overlay h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .service-overlay p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .service-icon {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.4s ease;
+            z-index: 2;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .deep-cleaning { background-image: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'); }
+        .move-cleaning { background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'); }
+        .construction-cleaning { background-image: url('https://images.unsplash.com/photo-1504148455328-c376907d081c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'); }
+        .spring-cleaning { background-image: url('https://images.unsplash.com/photo-1563453392212-326f5e854473?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'); }
+        .party-cleaning { background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'); }
+        .regular-cleaning { background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'); }
+
+        .service-content {
+            padding: 40px;
+        }
+
+        .service-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .service-content p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .service-features li {
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 30px;
+            line-height: 1.6;
+        }
+
+        .service-features li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 16px;
+            height: 16px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-features li::after {
+            content: '✓';
+            position: absolute;
+            left: 4px;
+            top: 4px;
+            color: var(--white);
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .service-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 25px;
+            border-top: 2px solid #f1f5f9;
+        }
+
+        .service-price {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .price-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .price-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .service-cta {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+        }
+
+        .service-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* Areas Section */
+        .areas {
+            padding: 140px 0;
+            background: var(--gradient-dark);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .areas-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+        }
+
+        .areas-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            margin-top: 80px;
+        }
+
+        .area-card {
+            background: var(--gradient-glass);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-radius: var(--border-radius-lg);
+            padding: 45px 35px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .area-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .area-card:hover::before {
+            left: 100%;
+        }
+
+        .area-card:hover {
+            transform: translateY(-15px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 215, 0, 0.3);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .area-icon {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            display: block;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+        }
+
+        .area-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .area-card p {
+            opacity: 0.9;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 140px 0;
+            background: var(--light-gray);
+            position: relative;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .contact-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 30px;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .contact-content p {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 50px;
+            line-height: 1.7;
+        }
+
+        .contact-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            padding: 22px 30px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.05rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .contact-btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-call {
+            background: linear-gradient(135deg, #10b981, #047857);
+            color: var(--white);
+        }
+
+        .btn-text {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: var(--white);
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: var(--white);
+        }
+
+        .btn-facebook {
+            background: linear-gradient(135deg, #1877f2, #166fe5);
+            color: var(--white);
+        }
+
+        .btn-instagram {
+            background: linear-gradient(135deg, #e4405f, #c13584);
+            color: var(--white);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .contact-btn .icon {
+            font-size: 1.3rem;
+        }
+
+        .contact-visual {
+            background: var(--gradient-primary);
+            border-radius: var(--border-radius-xl);
+            padding: 80px 60px;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .contact-visual::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+        }
+
+        .contact-visual-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-visual h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .contact-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .contact-stat-item {
+            text-align: center;
+        }
+
+        .contact-stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-stat-label {
+            opacity: 0.9;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 140px 0;
+            background: var(--white);
+        }
+
+        .testimonials-grid {
+display: grid;
+           grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+           gap: 40px;
+           margin-top: 80px;
+       }
+
+       .testimonial-card {
+           background: var(--light-gray);
+           border-radius: var(--border-radius-lg);
+           padding: 40px;
+           position: relative;
+           transition: all 0.4s ease;
+           box-shadow: var(--shadow-md);
+       }
+
+       .testimonial-card:hover {
+           transform: translateY(-10px);
+           box-shadow: var(--shadow-xl);
+       }
+
+       .testimonial-card::before {
+           content: '"';
+           position: absolute;
+           top: -10px;
+           left: 30px;
+           font-size: 6rem;
+           color: var(--primary);
+           font-family: 'Playfair Display', serif;
+           opacity: 0.3;
+       }
+
+       .testimonial-text {
+           font-size: 1.1rem;
+           line-height: 1.7;
+           color: var(--text-secondary);
+           margin-bottom: 30px;
+           font-style: italic;
+       }
+
+       .testimonial-author {
+           display: flex;
+           align-items: center;
+           gap: 15px;
+       }
+
+       .author-avatar {
+           width: 60px;
+           height: 60px;
+           border-radius: 50%;
+           background: var(--gradient-primary);
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           color: var(--white);
+           font-weight: 700;
+           font-size: 1.2rem;
+       }
+
+       .author-info h5 {
+           font-weight: 600;
+           color: var(--dark);
+           margin-bottom: 5px;
+       }
+
+       .author-info p {
+           color: var(--text-secondary);
+           font-size: 0.9rem;
+       }
+
+       .testimonial-rating {
+           display: flex;
+           gap: 2px;
+           margin-top: 10px;
+       }
+
+       .star {
+           color: var(--accent);
+           font-size: 1.1rem;
+       }
+
+       /* Footer */
+       .footer {
+           background: var(--gradient-dark);
+           color: var(--white);
+           padding: 100px 0 50px;
+           position: relative;
+           overflow: hidden;
+       }
+
+       .footer::before {
+           content: '';
+           position: absolute;
+           top: 0;
+           left: 0;
+           right: 0;
+           bottom: 0;
+           background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+           background-size: cover;
+           background-position: center;
+           opacity: 0.05;
+       }
+
+       .footer-content {
+           display: grid;
+           grid-template-columns: 2fr 1fr 1fr 1fr;
+           gap: 60px;
+           margin-bottom: 60px;
+           position: relative;
+           z-index: 2;
+       }
+
+       .footer-brand h3 {
+           font-family: 'Playfair Display', serif;
+           font-size: 2.5rem;
+           font-weight: 700;
+           margin-bottom: 25px;
+           background: var(--gradient-gold);
+           -webkit-background-clip: text;
+           -webkit-text-fill-color: transparent;
+           background-clip: text;
+       }
+
+       .footer-brand p {
+           opacity: 0.8;
+           line-height: 1.8;
+           margin-bottom: 30px;
+           font-size: 1.05rem;
+       }
+
+       .footer-contact {
+           display: flex;
+           flex-direction: column;
+           gap: 15px;
+       }
+
+       .footer-contact div {
+           display: flex;
+           align-items: center;
+           gap: 12px;
+           opacity: 0.9;
+           font-size: 1.05rem;
+       }
+
+       .footer-contact .icon {
+           font-size: 1.2rem;
+           color: var(--accent);
+       }
+
+       .footer-links h4 {
+           font-size: 1.3rem;
+           font-weight: 600;
+           margin-bottom: 25px;
+           color: var(--accent);
+       }
+
+       .footer-links ul {
+           list-style: none;
+           display: flex;
+           flex-direction: column;
+           gap: 12px;
+       }
+
+       .footer-links a {
+           color: var(--white);
+           text-decoration: none;
+           opacity: 0.8;
+           transition: all 0.3s ease;
+           font-size: 1rem;
+       }
+
+       .footer-links a:hover {
+           opacity: 1;
+           color: var(--accent);
+           transform: translateX(5px);
+       }
+
+       .footer-social {
+           display: flex;
+           gap: 15px;
+           margin-top: 20px;
+       }
+
+       .social-link {
+           width: 50px;
+           height: 50px;
+           border-radius: 50%;
+           background: var(--gradient-glass);
+           backdrop-filter: blur(20px);
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           color: var(--white);
+           text-decoration: none;
+           font-size: 1.3rem;
+           transition: all 0.3s ease;
+           border: 1px solid rgba(255, 255, 255, 0.2);
+       }
+
+       .social-link:hover {
+           background: var(--gradient-gold);
+           color: var(--dark);
+           transform: translateY(-3px);
+           box-shadow: var(--shadow-lg);
+       }
+
+       .footer-bottom {
+           text-align: center;
+           padding-top: 50px;
+           border-top: 1px solid rgba(255, 255, 255, 0.1);
+           opacity: 0.7;
+           position: relative;
+           z-index: 2;
+       }
+
+       .footer-bottom p {
+           font-size: 1rem;
+           line-height: 1.6;
+       }
+
+       /* CTA Floating Button */
+       .floating-cta {
+           position: fixed;
+           bottom: 30px;
+           right: 30px;
+           z-index: 999;
+           background: var(--gradient-gold);
+           color: var(--dark);
+           padding: 18px 25px;
+           border-radius: 50px;
+           box-shadow: var(--shadow-2xl);
+           text-decoration: none;
+           font-weight: 700;
+           font-size: 1rem;
+           transition: all 0.3s ease;
+           display: flex;
+           align-items: center;
+           gap: 10px;
+           animation: pulse 2s infinite;
+       }
+
+       .floating-cta:hover {
+           transform: translateY(-5px);
+           box-shadow: 0 20px 40px rgba(255, 215, 0, 0.4);
+       }
+
+       @keyframes pulse {
+           0%, 100% {
+               box-shadow: var(--shadow-2xl);
+           }
+           50% {
+               box-shadow: 0 20px 40px rgba(255, 215, 0, 0.6);
+           }
+       }
+
+       /* Loading Animation */
+       .loading-overlay {
+           position: fixed;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           background: var(--gradient-dark);
+           z-index: 9999;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           transition: opacity 0.5s ease;
+       }
+
+       .loading-content {
+           text-align: center;
+           color: var(--white);
+       }
+
+       .loading-logo {
+           font-family: 'Playfair Display', serif;
+           font-size: 3rem;
+           font-weight: 700;
+           background: var(--gradient-gold);
+           -webkit-background-clip: text;
+           -webkit-text-fill-color: transparent;
+           background-clip: text;
+           margin-bottom: 20px;
+       }
+
+       .loading-spinner {
+           width: 50px;
+           height: 50px;
+           border: 3px solid rgba(255, 215, 0, 0.3);
+           border-top: 3px solid var(--accent);
+           border-radius: 50%;
+           animation: spin 1s linear infinite;
+           margin: 0 auto;
+       }
+
+       @keyframes spin {
+           0% { transform: rotate(0deg); }
+           100% { transform: rotate(360deg); }
+       }
+
+       /* Responsive Design */
+       @media (max-width: 1200px) {
+           .nav-container, .container {
+               padding: 0 30px;
+           }
+           
+           .hero h1 {
+               font-size: 4rem;
+           }
+           
+           .section-title {
+               font-size: 3rem;
+           }
+       }
+
+       @media (max-width: 1024px) {
+           .services-grid {
+               grid-template-columns: 1fr;
+           }
+           
+           .contact-container {
+               grid-template-columns: 1fr;
+               gap: 60px;
+           }
+           
+           .footer-content {
+               grid-template-columns: 1fr 1fr;
+               gap: 40px;
+           }
+           
+           .hero-stats {
+               gap: 40px;
+           }
+       }
+
+       @media (max-width: 768px) {
+           .nav-links {
+               display: none;
+           }
+           
+           .nav-container {
+               padding: 0 20px;
+           }
+           
+           .hero h1 {
+               font-size: 3rem;
+           }
+           
+           .hero p {
+               font-size: 1.2rem;
+           }
+           
+           .hero-buttons {
+               flex-direction: column;
+               align-items: center;
+           }
+           
+           .hero-stats {
+               flex-direction: column;
+               gap: 30px;
+           }
+           
+           .section-title {
+               font-size: 2.5rem;
+           }
+           
+           .contact-buttons {
+               grid-template-columns: 1fr;
+           }
+           
+           .footer-content {
+               grid-template-columns: 1fr;
+               gap: 30px;
+           }
+           
+           .container {
+               padding: 0 20px;
+           }
+           
+           .floating-cta {
+               bottom: 20px;
+               right: 20px;
+               padding: 15px 20px;
+               font-size: 0.9rem;
+           }
+       }
+
+       /* Advanced Animations */
+       .fade-in {
+           opacity: 0;
+           transform: translateY(50px);
+           transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+       }
+
+       .fade-in.visible {
+           opacity: 1;
+           transform: translateY(0);
+       }
+
+       .slide-in-left {
+           opacity: 0;
+           transform: translateX(-50px);
+           transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+       }
+
+       .slide-in-left.visible {
+           opacity: 1;
+           transform: translateX(0);
+       }
+
+       .slide-in-right {
+           opacity: 0;
+           transform: translateX(50px);
+           transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+       }
+
+       .slide-in-right.visible {
+           opacity: 1;
+           transform: translateX(0);
+       }
+
+       .scale-in {
+           opacity: 0;
+           transform: scale(0.8);
+           transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+       }
+
+       .scale-in.visible {
+           opacity: 1;
+           transform: scale(1);
+       }
+   </style>
+</head>
+<body>
+   <!-- Loading Screen -->
+   <div class="loading-overlay" id="loadingOverlay">
+       <div class="loading-content">
+           <div class="loading-logo">Shirlei Cleanings</div>
+           <div class="loading-spinner"></div>
+       </div>
+   </div>
+
+   <!-- Navigation -->
+   <nav class="navbar" id="navbar">
+       <div class="nav-container">
+           <div class="logo">Shirlei Cleanings</div>
+           <ul class="nav-links">
+               <li><a href="#home">Home</a></li>
+               <li><a href="#services">Services</a></li>
+               <li><a href="#areas">Areas</a></li>
+               <li><a href="#testimonials">Reviews</a></li>
+               <li><a href="#contact">Contact</a></li>
+           </ul>
+           <a href="tel:+12392462144" class="nav-cta">📞 Call Now</a>
+       </div>
+   </nav>
+
+   <!-- Hero Section -->
+   <section class="hero" id="home">
+       <div class="hero-bg-shapes">
+           <div class="shape shape-1"></div>
+           <div class="shape shape-2"></div>
+           <div class="shape shape-3"></div>
+       </div>
+       <div class="hero-content">
+           <div class="hero-badge">Florida's #1 Premium Cleaning Service</div>
+           <h1>Experience Perfection with <span class="highlight">Shirlei Cleanings</span></h1>
+           <p>Where excellence meets reliability. Transform your space into a pristine sanctuary with our award-winning cleaning services across Southwest Florida.</p>
+           <div class="hero-buttons">
+               <a href="tel:+12392462144" class="btn-hero-primary">
+                   <span class="icon">📞</span> Call (239) 246-2144
+               </a>
+               <a href="#services" class="btn-hero-secondary">
+                   <span class="icon">✨</span> Explore Services
+               </a>
+           </div>
+           <div class="hero-stats">
+               <div class="stat-item">
+                   <div class="stat-number">1000+</div>
+                   <div class="stat-label">Happy Clients</div>
+               </div>
+               <div class="stat-item">
+                   <div class="stat-number">5★</div>
+                   <div class="stat-label">Perfect Rating</div>
+               </div>
+               <div class="stat-item">
+                   <div class="stat-number">24/7</div>
+                   <div class="stat-label">Support</div>
+               </div>
+           </div>
+       </div>
+   </section>
+
+   <!-- Services Section -->
+   <section class="services" id="services">
+       <div class="container">
+           <div class="section-header fade-in">
+               <div class="section-badge">Our Premium Services</div>
+               <h2 class="section-title">Exceptional Cleaning Solutions</h2>
+               <p class="section-subtitle">From deep cleaning to specialized services, we deliver unmatched quality that transforms your space into a spotless sanctuary.</p>
+           </div>
+           
+           <div class="services-grid">
+               <div class="service-card fade-in">
+                   <div class="service-image deep-cleaning">
+                       <div class="service-icon">🧹</div>
+                       <div class="service-overlay">
+                           <div class="service-overlay-content">
+                               <h4>Deep Cleaning</h4>
+                               <p>Professional-grade deep cleaning</p>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="service-content">
+                       <h3>Deep Cleaning</h3>
+                       <p>Our comprehensive deep cleaning service reaches every corner with professional-grade equipment and eco-friendly products for a truly pristine environment.</p>
+                       <ul class="service-features">
+                           <li>Complete surface sanitization</li>
+                           <li>Interior window cleaning</li>
+                           <li>Appliance deep clean</li>
+                           <li>Baseboards & molding detail</li>
+                           <li>Light fixture cleaning</li>
+                       </ul>
+                       <div class="service-footer">
+                           <div class="service-price">
+                               <span class="price-label">Starting from</span>
+                               <span class="price-value">$150</span>
+                           </div>
+                           <a href="tel:+12392462144" class="service-cta">Get Quote</a>
+                       </div>
+                   </div>
+               </div>
+
+               <div class="service-card fade-in">
+                   <div class="service-image move-cleaning">
+                       <div class="service-icon">📦</div>
+                       <div class="service-overlay">
+                           <div class="service-overlay-content">
+                               <h4>Move-In/Out</h4>
+                               <p>Perfect for your transition</p>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="service-content">
+                       <h3>Move-In/Move-Out</h3>
+                       <p>Perfect cleaning solution for transitions. We ensure your new space is pristine or leave your old one spotless for the next occupants.</p>
+                       <ul class="service-features">
+                           <li>Inside cabinet cleaning</li>
+                           <li>Refrigerator & oven deep clean</li>
+                           <li>Bathroom complete sanitization</li>
+                           <li>Floor to ceiling cleaning</li>
+                           <li>Move-in ready guarantee</li>
+                       </ul>
+                       <div class="service-footer">
+                           <div class="service-price">
+                               <span class="price-label">Starting from</span>
+                               <span class="price-value">$200</span>
+                           </div>
+                           <a href="tel:+12392462144" class="service-cta">Get Quote</a>
+                       </div>
+                   </div>
+               </div>
+
+               <div class="service-card fade-in">
+                   <div class="service-image construction-cleaning">
+                       <div class="service-icon">🏗️</div>
+                       <div class="service-overlay">
+                           <div class="service-overlay-content">
+                               <h4>Post Construction</h4>
+                               <p>Specialized renovation cleanup</p>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="service-content">
+                       <h3>Post Construction</h3>
+                       <p>Specialized cleaning after construction or renovation. We handle dust, debris, and construction residue with expertise and precision.</p>
+                       <ul class="service-features">
+                           <li>Construction dust removal</li>
+                           <li>Paint splash cleaning</li>
+                           <li>Window & fixture restoration</li>
+                           <li>HVAC vent cleaning</li>
+                           <li>Final inspection ready</li>
+                       </ul>
+                       <div class="service-footer">
+                           <div class="service-price">
+                               <span class="price-label">Starting from</span>
+                               <span class="price-value">$250</span>
+                           </div>
+                           <a href="tel:+12392462144" class="service-cta">Get Quote</a>
+                       </div>
+                   </div>
+               </div>
+
+               <div class="service-card fade-in">
+                   <div class="service-image spring-cleaning">
+                       <div class="service-icon">🌸</div>
+                       <div class="service-overlay">
+                           <div class="service-overlay-content">
+                               <h4>Spring Cleaning</h4>
+                               <p>Seasonal deep refresh</p>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="service-content">
+                       <h3>Spring Cleaning</h3>
+                       <p>Seasonal deep refresh to welcome new beginnings. We tackle areas often overlooked in regular cleaning routines.</p>
+                       <ul class="service-features">
+                           <li>Light fixture deep cleaning</li>
+                           <li>Ceiling fan maintenance</li>
+                           <li>Closet organization</li>
+                           <li>Seasonal deep sanitization</li>
+                           <li>Fresh start guarantee</li>
+                       </ul>
+                       <div class="service-footer">
+                           <div class="service-price">
+                               <span class="price-label">Starting from</span>
+                               <span class="price-value">$180</span>
+                           </div>
+                           <a href="tel:+12392462144" class="service-cta">Get Quote</a>
+                       </div>
+                   </div>
+               </div>
+
+               <div class="service-card fade-in">
+                   <div class="service-image party-cleaning">
+                       <div class="service-icon">🎉</div>
+                       <div class="service-overlay">
+                           <div class="service-overlay-content">
+                               <h4>Party Cleaning</h4>
+                               <p>Stress-free event solutions</p>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="service-content">
+                       <h3>Before & After Party</h3>
+                       <p>Focus on your celebration while we handle preparation and cleanup. Stress-free event cleaning solutions.</p>
+                       <ul class="service-features">
+                           <li>Pre-event space preparation</li>
+                           <li>Post-party thorough cleanup</li>
+                           <li>Stain removal expertise</li>
+                           <li>Quick turnaround service</li>
+                           <li>Event success guarantee</li>
+                       </ul>
+                       <div class="service-footer">
+                           <div class="service-price">
+                               <span class="price-label">Starting from</span>
+                               <span class="price-value">$120</span>
+                           </div>
+                           <a href="tel:+12392462144" class="service-cta">Get Quote</a>
+                       </div>
+                   </div>
+               </div>
+
+               <div class="service-card fade-in">
+                   <div class="service-image regular-cleaning">
+                       <div class="service-icon">📅</div>
+                       <div class="service-overlay">
+                           <div class="service-overlay-content">
+                               <h4>Regular Maintenance</h4>
+                               <p>Consistent quality service</p>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="service-content">
+                       <h3>Regular Maintenance</h3>
+                       <p>Consistent, reliable cleaning schedules to maintain your space. Choose weekly, bi-weekly, or monthly service.</p>
+                       <ul class="service-features">
+                           <li>Flexible scheduling options</li>
+                           <li>Consistent professional team</li>
+                           <li>Quality satisfaction guarantee</li>
+                           <li>Loyalty program discounts</li>
+                           <li>Priority booking status</li>
+                       </ul>
+                       <div class="service-footer">
+                           <div class="service-price">
+                               <span class="price-label">Starting from</span>
+                               <span class="price-value">$80</span>
+                           </div>
+                           <a href="tel:+12392462144" class="service-cta">Get Quote</a>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </section>
+
+   <!-- Areas Section -->
+   <section class="areas" id="areas">
+       <div class="areas-bg"></div>
+       <div class="container areas-content">
+           <div class="section-header slide-in-left">
+               <div class="section-badge">Service Areas</div>
+               <h2 class="section-title">Proudly Serving Southwest Florida</h2>
+               <p class="section-subtitle">Bringing exceptional cleaning services to the most beautiful communities across Southwest Florida with unmatched dedication and quality.</p>
+           </div>
+           
+           <div class="areas-grid">
+               <div class="area-card slide-in-right">
+                   <span class="area-icon">🏖️</span>
+                   <h3>Bonita Springs</h3>
+                   <p>Premium cleaning services for this stunning coastal community. From luxury beachfront condos to elegant inland estates, we maintain the highest standards of excellence.</p>
+               </div>
+               <div class="area-card slide-in-right">
+                   <span class="area-icon">🌴</span>
+                   <h3>Naples</h3>
+                   <p>Serving Naples' prestigious homes and businesses with meticulous attention to detail and white-glove service that perfectly matches the area's sophistication.</p>
+               </div>
+               <div class="area-card slide-in-right">
+                   <span class="area-icon">🐚</span>
+                   <h3>Sanibel Island</h3>
+                   <p>Specialized island cleaning services for vacation rentals, seasonal homes, and year-round residences. We understand the unique needs of island living.</p>
+               </div>
+               <div class="area-card slide-in-right">
+                   <span class="area-icon">🏛️</span>
+                   <h3>Fort Myers</h3>
+                   <p>Comprehensive cleaning solutions for Fort Myers residents and businesses. Reliable, professional service you can always count on for exceptional results.</p>
+               </div>
+           </div>
+       </div>
+   </section>
+
+   <!-- Testimonials Section -->
+   <section class="testimonials" id="testimonials">
+       <div class="container">
+           <div class="section-header fade-in">
+               <div class="section-badge">Client Reviews</div>
+               <h2 class="section-title">What Our Clients Say</h2>
+               <p class="section-subtitle">Don't just take our word for it. See what our satisfied clients have to say about our exceptional cleaning services.</p>
+           </div>
+           
+           <div class="testimonials-grid">
+               <div class="testimonial-card scale-in">
+                   <p class="testimonial-text">"Shirlei Cleanings transformed our home completely! Their attention to detail is incredible and the team is so professional. I've never seen our house this clean. Highly recommend!"</p>
+                   <div class="testimonial-author">
+                       <div class="author-avatar">MJ</div>
+                       <div class="author-info">
+                           <h5>Maria Johnson</h5>
+                           <p>Naples Homeowner</p>
+                           <div class="testimonial-rating">
+                               <span class="star">★</span>
+                               <span class="star">★</span>
+                               <span class="star">★</span>
+                               <span class="star">★</span>
+                               <span class="star">★</span>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+
+               <div class="testimonial-card scale-in">
+                   <p class="testimonial-text">"Outstanding service! They cleaned our office building perfectly and on schedule. The staff is reliable, trustworthy, and goes above and beyond. Best cleaning service in Southwest Florida!"</p>
+                   <div class="testimonial-author">
+                       <div class="author-avatar">RS</div>
+                       <div class="author-info">
+                           <h5>Robert Smith</h5>
+                           <p>Business Owner, Fort Myers</p>
+                           <div class="testimonial-rating">
+                               <span class="star">★</span>
+                               <span class="star">★</span>
+                               <span class="star">★</span>
+                               <span class="star">★</span>
+                               <span class="star">★</span>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+
+               <div class="testimonial-card scale-in">
+                   <p class="testimonial-text">"After our home renovation, Shirlei Cleanings made everything perfect. They removed all the construction dust and debris. Our house looks brand new! Exceptional work."</p>
+                   <div class="testimonial-author">
+                       <div class="author-avatar">LW</div>
+                       <div class="author-info">
+                           <h5>Linda Williams</h5>
+                           <p>Bonita Springs Resident</p>
+                           <div class="testimonial-rating">
+                               <span class="star">★</span>
+                               <span class="star">★</span>
+                               <span class="star">★</span>
+                               <span class="star">★</span>
+                               <span class="star">★</span>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </section>
+
+   <!-- Contact Section -->
+   <section class="contact" id="contact">
+       <div class="container">
+           <div class="contact-container">
+               <div class="contact-content slide-in-left">
+                   <div class="section-badge">Get In Touch</div>
+                   <h2>Ready for the Ultimate Clean?</h2>
+                   <p>Experience the Shirlei Cleanings difference today. Contact us now for your free quote and discover why we're Southwest Florida's most trusted and highly-rated cleaning service.</p>
+                   
+                   <div class="contact-buttons">
+                       <a href="tel:+12392462144" class="contact-btn btn-call">
+                           <span class="icon">📞</span> Call: (239) 246-2144
+                       </a>
+                       <a href="sms:+12392462144" class="contact-btn btn-text">
+                           <span class="icon">💬</span> Text Message
+                       </a>
+                       <a href="https://wa.me/12392462144" class="contact-btn btn-whatsapp" target="_blank">
+                           <span class="icon">📱</span> WhatsApp
+                       </a>
+                       <a href="https://facebook.com" class="contact-btn btn-facebook" target="_blank">
+                           <span class="icon">📘</span> Facebook
+                       </a>
+                       <a href="https://instagram.com" class="contact-btn btn-instagram" target="_blank">
+                           <span class="icon">📸</span> Instagram
+                       </a>
+                   </div>
+               </div>
+               
+               <div class="contact-visual slide-in-right">
+                   <div class="contact-visual-content">
+                       <h3>Why Choose Shirlei Cleanings?</h3>
+                       <div class="contact-stats">
+                           <div class="contact-stat-item">
+                               <div class="contact-stat-number">1000+</div>
+                               <div class="contact-stat-label">Satisfied Clients</div>
+                           </div>
+                           <div class="contact-stat-item">
+                               <div class="contact-stat-number">5★</div>
+                               <div class="contact-stat-label">Perfect Rating</div>
+                           </div>
+                           <div class="contact-stat-item">
+                               <div class="contact-stat-number">5+</div>
+                               <div class="contact-stat-label">Years Experience</div>
+                           </div>
+<div class="contact-stat-number">100%</div>
+                               <div class="contact-stat-label">Satisfaction</div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </section>
+
+   <!-- Footer -->
+   <footer class="footer">
+       <div class="container">
+           <div class="footer-content">
+               <div class="footer-brand">
+                   <h3>Shirlei Cleanings</h3>
+                   <p>Southwest Florida's premier cleaning service. We're committed to delivering exceptional results and building lasting relationships with our clients through trust, reliability, and unmatched quality that exceeds expectations.</p>
+                   <div class="footer-contact">
+                       <div><span class="icon">📞</span> (239) 246-2144</div>
+                       <div><span class="icon">📱</span> WhatsApp Available</div>
+                       <div><span class="icon">📧</span> info@shirleicleaning.com</div>
+                       <div><span class="icon">📍</span> Southwest Florida</div>
+                   </div>
+                   <div class="footer-social">
+                       <a href="https://facebook.com" class="social-link" target="_blank">📘</a>
+                       <a href="https://instagram.com" class="social-link" target="_blank">📸</a>
+                       <a href="https://wa.me/12392462144" class="social-link" target="_blank">📱</a>
+                   </div>
+               </div>
+               
+               <div class="footer-links">
+                   <h4>Services</h4>
+                   <ul>
+                       <li><a href="#services">Deep Cleaning</a></li>
+                       <li><a href="#services">Move-In/Out</a></li>
+                       <li><a href="#services">Post Construction</a></li>
+                       <li><a href="#services">Spring Cleaning</a></li>
+                       <li><a href="#services">Party Cleaning</a></li>
+                       <li><a href="#services">Regular Maintenance</a></li>
+                   </ul>
+               </div>
+               
+               <div class="footer-links">
+                   <h4>Service Areas</h4>
+                   <ul>
+                       <li><a href="#areas">Bonita Springs</a></li>
+                       <li><a href="#areas">Naples</a></li>
+                       <li><a href="#areas">Sanibel Island</a></li>
+                       <li><a href="#areas">Fort Myers</a></li>
+                       <li><a href="#contact">Emergency Service</a></li>
+                       <li><a href="#contact">Free Estimates</a></li>
+                   </ul>
+               </div>
+               
+               <div class="footer-links">
+                   <h4>Company</h4>
+                   <ul>
+                       <li><a href="#home">About Us</a></li>
+                       <li><a href="#testimonials">Reviews</a></li>
+                       <li><a href="#contact">Contact</a></li>
+                       <li><a href="#services">Free Quote</a></li>
+                       <li><a href="tel:+12392462144">24/7 Support</a></li>
+                       <li><a href="#areas">Coverage Area</a></li>
+                   </ul>
+               </div>
+           </div>
+           
+           <div class="footer-bottom">
+               <p>&copy; 2025 Shirlei Cleanings. All rights reserved. | Licensed & Insured | Southwest Florida's Most Trusted Cleaning Professionals | Proudly Serving Bonita Springs, Naples, Sanibel, and Fort Myers</p>
+           </div>
+       </div>
+   </footer>
+
+   <!-- Floating CTA Button -->
+   <a href="tel:+12392462144" class="floating-cta">
+       <span>📞</span> Call Now!
+   </a>
+
+   <script>
+       // Loading screen
+       window.addEventListener('load', function() {
+           const loadingOverlay = document.getElementById('loadingOverlay');
+           setTimeout(() => {
+               loadingOverlay.style.opacity = '0';
+               setTimeout(() => {
+                   loadingOverlay.style.display = 'none';
+               }, 500);
+           }, 1500);
+       });
+
+       // Enhanced smooth scrolling with easing
+       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+           anchor.addEventListener('click', function (e) {
+               e.preventDefault();
+               const target = document.querySelector(this.getAttribute('href'));
+               if (target) {
+                   const offsetTop = target.offsetTop - 80;
+                   window.scrollTo({
+                       top: offsetTop,
+                       behavior: 'smooth'
+                   });
+               }
+           });
+       });
+
+       // Advanced scroll animations with multiple observers
+       const createObserver = (className, threshold = 0.1) => {
+           return new IntersectionObserver(function(entries) {
+               entries.forEach(entry => {
+                   if (entry.isIntersecting) {
+                       entry.target.classList.add('visible');
+                   }
+               });
+           }, {
+               threshold: threshold,
+               rootMargin: '0px 0px -50px 0px'
+           });
+       };
+
+       // Create observers for different animation types
+       const fadeObserver = createObserver('fade-in');
+       const slideLeftObserver = createObserver('slide-in-left');
+       const slideRightObserver = createObserver('slide-in-right');
+       const scaleObserver = createObserver('scale-in');
+
+       // Observe elements
+       document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+       document.querySelectorAll('.slide-in-left').forEach(el => slideLeftObserver.observe(el));
+       document.querySelectorAll('.slide-in-right').forEach(el => slideRightObserver.observe(el));
+       document.querySelectorAll('.scale-in').forEach(el => scaleObserver.observe(el));
+
+       // Enhanced navbar scroll effects
+       let lastScrollTop = 0;
+       let ticking = false;
+
+       function updateNavbar() {
+           const navbar = document.getElementById('navbar');
+           const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+           
+           // Add/remove scrolled class
+           if (scrollTop > 100) {
+               navbar.classList.add('scrolled');
+           } else {
+               navbar.classList.remove('scrolled');
+           }
+           
+           // Hide/show navbar on scroll
+           if (scrollTop > lastScrollTop && scrollTop > 200) {
+               navbar.style.transform = 'translateY(-100%)';
+           } else {
+               navbar.style.transform = 'translateY(0)';
+           }
+           
+           lastScrollTop = scrollTop;
+           ticking = false;
+       }
+
+       window.addEventListener('scroll', function() {
+           if (!ticking) {
+               requestAnimationFrame(updateNavbar);
+               ticking = true;
+           }
+       });
+
+       // Enhanced button interactions with multiple effects
+       document.querySelectorAll('.contact-btn, .service-cta, .btn-hero-primary, .btn-hero-secondary, .nav-cta').forEach(button => {
+           button.addEventListener('click', function(e) {
+               // Create ripple effect
+               const ripple = document.createElement('span');
+               const rect = this.getBoundingClientRect();
+               const size = Math.max(rect.width, rect.height);
+               const x = e.clientX - rect.left - size / 2;
+               const y = e.clientY - rect.top - size / 2;
+               
+               ripple.style.cssText = `
+                   position: absolute;
+                   width: ${size}px;
+                   height: ${size}px;
+                   left: ${x}px;
+                   top: ${y}px;
+                   background: rgba(255, 255, 255, 0.3);
+                   border-radius: 50%;
+                   transform: scale(0);
+                   animation: ripple 0.6s ease-out;
+                   pointer-events: none;
+               `;
+               
+               this.style.position = 'relative';
+               this.style.overflow = 'hidden';
+               this.appendChild(ripple);
+               
+               setTimeout(() => ripple.remove(), 600);
+               
+               // Haptic feedback
+               if (navigator.vibrate) {
+                   navigator.vibrate(50);
+               }
+           });
+       });
+
+       // Add ripple animation CSS
+       const rippleStyle = document.createElement('style');
+       rippleStyle.textContent = `
+           @keyframes ripple {
+               to {
+                   transform: scale(2);
+                   opacity: 0;
+               }
+           }
+       `;
+       document.head.appendChild(rippleStyle);
+
+       // Parallax effects for hero background
+       window.addEventListener('scroll', function() {
+           const scrolled = window.pageYOffset;
+           const hero = document.querySelector('.hero');
+           const shapes = document.querySelectorAll('.shape');
+           
+           if (hero && scrolled < hero.offsetHeight) {
+               shapes.forEach((shape, index) => {
+                   const speed = 0.5 + (index * 0.2);
+                   shape.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
+               });
+           }
+       });
+
+       // Service card advanced hover effects
+       document.querySelectorAll('.service-card').forEach(card => {
+           card.addEventListener('mouseenter', function() {
+               this.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+               
+               // Animate service features
+               const features = this.querySelectorAll('.service-features li');
+               features.forEach((feature, index) => {
+                   setTimeout(() => {
+                       feature.style.transform = 'translateX(5px)';
+                       feature.style.color = 'var(--primary)';
+                   }, index * 50);
+               });
+           });
+           
+           card.addEventListener('mouseleave', function() {
+               const features = this.querySelectorAll('.service-features li');
+               features.forEach(feature => {
+                   feature.style.transform = 'translateX(0)';
+                   feature.style.color = 'var(--text-secondary)';
+               });
+           });
+       });
+
+       // Advanced loading animations with stagger
+       document.addEventListener('DOMContentLoaded', function() {
+           // Stagger animations for service cards
+           const serviceCards = document.querySelectorAll('.service-card');
+           serviceCards.forEach((card, index) => {
+               card.style.opacity = '0';
+               card.style.transform = 'translateY(50px)';
+               setTimeout(() => {
+                   card.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                   card.style.opacity = '1';
+                   card.style.transform = 'translateY(0)';
+               }, index * 200);
+           });
+
+           // Animate stats on scroll
+           const animateStats = () => {
+               const statNumbers = document.querySelectorAll('.stat-number, .contact-stat-number');
+               statNumbers.forEach(stat => {
+                   const target = parseInt(stat.textContent);
+                   const isFloat = stat.textContent.includes('★');
+                   
+                   if (!isFloat && target > 0) {
+                       let current = 0;
+                       const increment = target / 50;
+                       const timer = setInterval(() => {
+                           current += increment;
+                           if (current >= target) {
+                               stat.textContent = target + (target > 100 ? '+' : '');
+                               clearInterval(timer);
+                           } else {
+                               stat.textContent = Math.floor(current) + (target > 100 ? '+' : '');
+                           }
+                       }, 30);
+                   }
+               });
+           };
+
+           // Trigger stats animation when visible
+           const statsObserver = new IntersectionObserver((entries) => {
+               entries.forEach(entry => {
+                   if (entry.isIntersecting) {
+                       animateStats();
+                       statsObserver.unobserve(entry.target);
+                   }
+               });
+           });
+
+           document.querySelectorAll('.hero-stats, .contact-stats').forEach(stats => {
+               statsObserver.observe(stats);
+           });
+       });
+
+       // Dynamic text typing effect for hero title
+       function typeText(element, text, speed = 100) {
+           element.textContent = '';
+           let i = 0;
+           const timer = setInterval(() => {
+               if (i < text.length) {
+                   element.textContent += text.charAt(i);
+                   i++;
+               } else {
+                   clearInterval(timer);
+               }
+           }, speed);
+       }
+
+       // Advanced mobile optimizations
+       const isMobile = window.innerWidth <= 768;
+       if (isMobile) {
+           // Reduce animations on mobile for better performance
+           document.documentElement.style.setProperty('--animation-duration', '0.3s');
+           
+           // Mobile-specific touch effects
+           document.querySelectorAll('.contact-btn, .service-cta').forEach(button => {
+               button.addEventListener('touchstart', function() {
+                   this.style.transform = 'scale(0.98)';
+               });
+               
+               button.addEventListener('touchend', function() {
+                   setTimeout(() => {
+                       this.style.transform = 'scale(1)';
+                   }, 100);
+               });
+           });
+       }
+
+       // Performance optimization - lazy load heavy animations
+       const heavyAnimations = () => {
+           // Only load heavy animations after page is fully loaded
+           setTimeout(() => {
+               document.body.classList.add('animations-loaded');
+           }, 2000);
+       };
+
+       window.addEventListener('load', heavyAnimations);
+
+       // Enhanced scroll-to-top functionality
+       window.addEventListener('scroll', function() {
+           const floatingCTA = document.querySelector('.floating-cta');
+           if (window.pageYOffset > 300) {
+               floatingCTA.style.opacity = '1';
+               floatingCTA.style.transform = 'translateY(0)';
+           } else {
+               floatingCTA.style.opacity = '0.8';
+               floatingCTA.style.transform = 'translateY(10px)';
+           }
+       });
+
+       // Add dynamic favicon change
+       function changeFavicon() {
+           const favicon = document.querySelector('link[rel="icon"]') || document.createElement('link');
+           favicon.rel = 'icon';
+           favicon.href = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">✨</text></svg>';
+           document.head.appendChild(favicon);
+       }
+
+       changeFavicon();
+
+       // Page visibility API for performance
+       document.addEventListener('visibilitychange', function() {
+           if (document.hidden) {
+               // Pause heavy animations when tab is not visible
+               document.body.style.animationPlayState = 'paused';
+           } else {
+               document.body.style.animationPlayState = 'running';
+           }
+       });
+
+       // Enhanced error handling and fallbacks
+       window.addEventListener('error', function(e) {
+           console.log('Handled error:', e.message);
+           // Fallback for any JavaScript errors
+       });
+
+       // Add focus management for accessibility
+       document.addEventListener('keydown', function(e) {
+           if (e.key === 'Tab') {
+               document.body.classList.add('keyboard-navigation');
+           }
+       });
+
+       document.addEventListener('mousedown', function() {
+           document.body.classList.remove('keyboard-navigation');
+       });
+
+       // Enhanced performance monitoring
+       if ('performance' in window) {
+           window.addEventListener('load', function() {
+               setTimeout(() => {
+                   const perfData = performance.getEntriesByType('navigation')[0];
+                   console.log('Page load time:', perfData.loadEventEnd - perfData.loadEventStart + 'ms');
+               }, 1000);
+           });
+       }
+   </script>
+</body>
+</html>
